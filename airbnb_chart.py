@@ -32,13 +32,13 @@ st.set_page_config(layout="wide", page_title="Airbnb Demo", page_icon=":house:")
 # LOAD DATA ONCE
 @st.cache_resource
 def load_data():
-    path = "airbnb-listings.csv"
+    path = "airbnb.csv"
 #     if not os.path.isfile(path):
 #         path = f"https://github.com/streamlit/demo-uber-nyc-pickups/raw/main/{path}"
 
     data = pd.read_csv(
         path,
-        delimiter = ";",
+        delimiter = ",",
         nrows=100000,  # approx. 10% of data
         names=[
             "city",
@@ -51,7 +51,7 @@ def load_data():
             "review",
         ],  # specify names directly since they don't change
         skiprows=1,  # don't read header since names specified directly
-        usecols=[38,44,45,46,48,56,72, 81],  # doesn't load last column, constant value "B02512"
+        usecols=[0,1,2,3,4,5,6, 7],  # doesn't load last column, constant value "B02512"
         # parse_dates=[
         #     "date/time"
         # ],  # set as datetime instead of converting after the fact
@@ -185,7 +185,7 @@ with row2_2:
         st.experimental_set_query_params(price=price)
     
     st.subheader("Price Picker")
-    price = st.slider("", 0, 600, key="price", on_change=update_query_params)
+    price = st.slider("", min_value=0, max_value =600, value=50, key="price", on_change=update_query_params)
 with row2_3:
     st.write("")
 row3_1, row3_2= st.columns((1, 2))
@@ -219,6 +219,7 @@ with row5_1:
     value_counts = data['roomType'].value_counts().reset_index()
     value_counts.columns = ['roomType', 'count']
     fig = px.bar(value_counts, x="count", y="roomType", orientation='h', color = 'roomType', template="simple_white")
+    fig.update_layout(showlegend=False)
     st.plotly_chart(fig, use_container_width=True)
     with st.expander("Type of Accomodation Bar Chart"):
         st.write("""Airbnb hosts have a range of options, from listing entire homes/apartments to private and shared rooms.
