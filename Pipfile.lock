@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c501ad45664e9c5f95925b3f96647e3e73ae130d7f1778ee44a2fa41990576cc"
+            "sha256": "0365dee266b5b7169aeb2cf8855a95e2fe0f431d395c94be5c6913df2e7712d5"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -305,6 +305,15 @@
             ],
             "markers": "python_version >= '3.8'",
             "version": "==6.8.0"
+        },
+        "importlib-resources": {
+            "hashes": [
+                "sha256:9d48dcccc213325e810fd723e7fbb45ccb39f6cf5c31f00cf2b965f5f10f3cb9",
+                "sha256:aa50258bbfa56d4e33fbd8aa3ef48ded10d1735f11532b8df95388cc6bdb7e83"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.8'",
+            "version": "==6.1.0"
         },
         "jinja2": {
             "hashes": [

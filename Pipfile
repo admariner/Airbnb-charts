@@ -9,6 +9,7 @@ matplotlib = "*"
 plotly = "*"
 scipy = "*"
 statsmodels = "*"
+importlib-resources = "*"
 
 [dev-packages]
 
