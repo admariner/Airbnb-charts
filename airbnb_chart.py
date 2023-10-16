@@ -33,8 +33,8 @@ st.set_page_config(layout="wide", page_title="Airbnb Demo", page_icon=":house:")
 @st.cache_resource
 def load_data():
     path = "airbnb.csv"
-#     if not os.path.isfile(path):
-#         path = f"https://github.com/streamlit/demo-uber-nyc-pickups/raw/main/{path}"
+    if not os.path.isfile(path):
+        path = f"https://github.com/giulianavll/Airbnb-charts/blob/main/{path}"
 
     data = pd.read_csv(
         path,
